@@ -1,0 +1,26 @@
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == target:
+            return mid  # Element found
+        elif arr[mid] < target:
+            low = mid + 1  # Search in right half
+        else:
+            high = mid - 1  # Search in left half
+
+    return -1  # Element not found
+
+# Example usage
+numbers = [10, 20, 30, 40, 50, 60]
+x = int(input("Enter number to search: "))
+
+result = binary_search(numbers, x)
+
+if result != -1:
+    print(f"{x} found at index {result}")
+else:
+    print(f"{x} not found in the list")
